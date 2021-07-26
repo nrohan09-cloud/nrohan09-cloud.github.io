@@ -17,9 +17,6 @@ const StyledExperiences = styled(motion.div)`
     margin-bottom: 10px;
   }
   .experience {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 2rem;
   }
 `;
 
@@ -50,6 +47,7 @@ const StyledExperience = styled.div`
   color: ${(p) => p.theme.colors.main.text};
   padding: 1.5rem;
   border-radius: 20px;
+  margin-bottom: 10px;
 
   .exp-title {
     font-weight: 600;

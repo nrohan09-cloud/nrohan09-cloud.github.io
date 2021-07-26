@@ -17,7 +17,7 @@ const StyledProjects = styled(motion.div)`
   }
   .experience {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 2rem;
   }
 `;
@@ -70,7 +70,9 @@ function Project({ pro }: { pro: project }) {
       <h2 className="pro-title">{pro.title}</h2>
       <p className="pro-description">{pro.description}</p>
       <div className="links">
-        <a href={pro.github}>view in github</a>
+        <a href={pro.github} target="_blank" rel="noreferrer">
+          view in github
+        </a>
       </div>
     </StyledProject>
   );
