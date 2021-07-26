@@ -2,10 +2,9 @@ import { motion } from "framer-motion";
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { GlobalContext } from "../contexts/GlobalContext";
-import { experience } from "./types";
-import { format } from "date-fns";
+import { project } from "./types";
 
-const StyledExperiences = styled(motion.div)`
+const StyledProjects = styled(motion.div)`
   background: ${(p) => p.theme.colors.main.accent};
   color: ${(p) => p.theme.colors.main.background};
   line-height: 1.6rem;
@@ -23,38 +22,38 @@ const StyledExperiences = styled(motion.div)`
   }
 `;
 
-export default function Experiences() {
+export default function Projects() {
   const { rohan } = useContext(GlobalContext);
 
   return (
     <>
-      {!!rohan.experiences.length && !rohan.error && (
-        <StyledExperiences
+      {!!rohan.projects.length && !rohan.error && (
+        <StyledProjects
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 0.99999, y: 0 }}
         >
-          <h2>Experience</h2>
+          <h2>Education</h2>
           <div className="experience">
-            {rohan.experiences.map((exp) => (
-              <Experience exp={exp} key={window.btoa(exp.role + exp.title)} />
+            {rohan.projects.map((pro) => (
+              <Project pro={pro} key={window.btoa(pro.title)} />
             ))}
           </div>
-        </StyledExperiences>
+        </StyledProjects>
       )}
     </>
   );
 }
 
-const StyledExperience = styled.div`
+const StyledProject = styled.div`
   background: ${(p) => p.theme.colors.main.background};
   color: ${(p) => p.theme.colors.main.text};
   padding: 1.5rem;
   border-radius: 20px;
 
-  .exp-title {
+  .pro-title {
     font-weight: 600;
   }
-  .exp-role {
+  .pro-role {
     font-weight: 600;
     color: ${(p) => p.theme.colors.main.accent};
   }
@@ -65,24 +64,14 @@ const StyledExperience = styled.div`
   }
 `;
 
-function Experience({ exp }: { exp: experience }) {
+function Project({ pro }: { pro: project }) {
   return (
-    <StyledExperience>
-      <p className="exp-date">
-        {format(new Date(exp.date.start), "MMM yyyy") +
-          " - " +
-          format(new Date(exp.date.end), "MMM yyyy")}
-      </p>
-      <h2 className="exp-title">{exp.title}</h2>
-      <p className="exp-role">{exp.role}</p>
-      <p className="exp-description">{exp.description}</p>
+    <StyledProject>
+      <h2 className="pro-title">{pro.title}</h2>
+      <p className="pro-description">{pro.description}</p>
       <div className="links">
-        {exp.links.map((link) => (
-          <a href={link.link} key={link.link}>
-            {link.label}
-          </a>
-        ))}
+        <a href={pro.github}>view in github</a>
       </div>
-    </StyledExperience>
+    </StyledProject>
   );
 }

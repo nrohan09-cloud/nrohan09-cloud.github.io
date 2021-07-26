@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { GlobalContext } from "../contexts/GlobalContext";
-import { experience } from "./types";
+import { education } from "./types";
 import { format } from "date-fns";
 
-const StyledExperiences = styled(motion.div)`
+const StyledEducation = styled(motion.div)`
   background: ${(p) => p.theme.colors.main.accent};
   color: ${(p) => p.theme.colors.main.background};
   line-height: 1.6rem;
@@ -23,23 +23,26 @@ const StyledExperiences = styled(motion.div)`
   }
 `;
 
-export default function Experiences() {
+export default function Educations() {
   const { rohan } = useContext(GlobalContext);
 
   return (
     <>
-      {!!rohan.experiences.length && !rohan.error && (
-        <StyledExperiences
+      {!!rohan.educations.length && !rohan.error && (
+        <StyledEducation
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 0.99999, y: 0 }}
         >
-          <h2>Experience</h2>
+          <h2>Education</h2>
           <div className="experience">
-            {rohan.experiences.map((exp) => (
-              <Experience exp={exp} key={window.btoa(exp.role + exp.title)} />
+            {rohan.educations.map((edu) => (
+              <Education
+                edu={edu}
+                key={window.btoa(edu.subtitle + edu.title)}
+              />
             ))}
           </div>
-        </StyledExperiences>
+        </StyledEducation>
       )}
     </>
   );
@@ -51,10 +54,10 @@ const StyledExperience = styled.div`
   padding: 1.5rem;
   border-radius: 20px;
 
-  .exp-title {
+  .edu-title {
     font-weight: 600;
   }
-  .exp-role {
+  .edu-role {
     font-weight: 600;
     color: ${(p) => p.theme.colors.main.accent};
   }
@@ -65,24 +68,17 @@ const StyledExperience = styled.div`
   }
 `;
 
-function Experience({ exp }: { exp: experience }) {
+function Education({ edu }: { edu: education }) {
   return (
     <StyledExperience>
       <p className="exp-date">
-        {format(new Date(exp.date.start), "MMM yyyy") +
+        {format(new Date(edu.date.start), "MMM yyyy") +
           " - " +
-          format(new Date(exp.date.end), "MMM yyyy")}
+          format(new Date(edu.date.end), "MMM yyyy")}
       </p>
-      <h2 className="exp-title">{exp.title}</h2>
-      <p className="exp-role">{exp.role}</p>
-      <p className="exp-description">{exp.description}</p>
-      <div className="links">
-        {exp.links.map((link) => (
-          <a href={link.link} key={link.link}>
-            {link.label}
-          </a>
-        ))}
-      </div>
+      <h2 className="edu-title">{edu.title}</h2>
+      <p className="edu-role">{edu.subtitle}</p>
+      <p className="edu-description">{edu.description}</p>
     </StyledExperience>
   );
 }

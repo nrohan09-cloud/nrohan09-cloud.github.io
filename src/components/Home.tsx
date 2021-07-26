@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Header from "./Header";
 import About from "./About";
 import Experiences from "./Experience";
+import Educations from "./Education";
+import Projects from "./Projects";
 
 const StyledHome = styled.div`
   display: flex;
@@ -21,6 +23,8 @@ export default function Home() {
       <div className="gap"></div>
       <About />
       <Experiences />
+      <Educations />
+      <Projects />
     </StyledHome>
   );
 }
