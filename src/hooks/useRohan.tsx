@@ -49,7 +49,29 @@ export function useRohan() {
     getGeneral()
       .then((d) => dispatch({ type: "general", payload: d }))
       .catch(() => setErr(true));
-    getProjects().then((d) => dispatch({ type: "projects", payload: d }));
+    getProjects().then(async (d) => {
+      dispatch({
+        type: "projects",
+        payload: await Promise.all(
+          d.map(async (p) => {
+            try {
+              const image = (await import("../assets/projects/" + p.image))
+                .default;
+
+              return {
+                ...p,
+                image,
+              };
+            } catch (error) {
+              return {
+                ...p,
+                image: null,
+              };
+            }
+          })
+        ),
+      });
+    });
     getExperience().then((d) => dispatch({ type: "experience", payload: d }));
     getSkills().then((d) => dispatch({ type: "skills", payload: d }));
     getEducation().then((d) => dispatch({ type: "education", payload: d }));

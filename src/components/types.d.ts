@@ -46,6 +46,7 @@ export type project = {
   description: string;
   github: string;
   title: string;
+  image?: string | null;
 };
 
 export type skill = {

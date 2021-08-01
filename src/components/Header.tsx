@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import React, { useContext } from "react";
 import styled from "styled-components";
 import profile from "../assets/default-profile.webp";
@@ -89,9 +89,17 @@ const SProfileimg = styled.div<{ l: boolean; err: boolean }>`
 `;
 
 function ProfileImg({ loading, err }: { loading: boolean; err: boolean }) {
+  const animation = useAnimation();
+
   return (
     <SProfileimg err={err} l={loading}>
-      <img src={profile} alt="profilephoto" />
+      <motion.img
+        initial={{ opacity: 0, filter: "blur(10px)" }}
+        animate={animation}
+        src={profile}
+        onLoad={() => animation.start({ opacity: 1, filter: "blur(0)" })}
+        alt="profilephoto"
+      />
     </SProfileimg>
   );
 }
