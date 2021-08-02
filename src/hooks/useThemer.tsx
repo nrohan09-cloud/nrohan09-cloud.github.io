@@ -39,11 +39,11 @@ export function useThemer() {
       : defaultlighttheme
   );
 
-  useEffect(() => {
+  /* useEffect(() => {
     const update = () => dispatch({ type: "updatehw" });
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
-  }, []);
+  }, []); */
 
   useEffect(() => {
     dispatch({ type: "updatehw" });
