@@ -69,5 +69,6 @@ export interface Rohan {
   projects: project[];
   educations: education[];
   skills: skill[];
+  getProjectById: (id: string) => project | undefined;
   error: boolean;
 }

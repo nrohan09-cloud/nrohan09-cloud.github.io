@@ -34,6 +34,7 @@ function reducer(state: Rohan, action: actionprops): Rohan {
       return { ...state, skills: action.payload as skill[] };
   }
 }
+type pbyid = (id: string) => project | undefined;
 const initialState: Rohan = {
   general: {} as general,
   experiences: {} as experience[],
@@ -41,7 +42,9 @@ const initialState: Rohan = {
   educations: {} as education[],
   skills: {} as skill[],
   error: false,
+  getProjectById: (() => {}) as pbyid,
 };
+
 export function useRohan() {
   const [data, dispatch] = useReducer(reducer, initialState);
   const [error, setErr] = useState(false);
@@ -77,10 +80,13 @@ export function useRohan() {
     getEducation().then((d) => dispatch({ type: "education", payload: d }));
   }, []);
 
-  return useMemo(
-    () => ({
-      rohan: { ...data, error },
-    }),
-    [data, error]
-  );
+  return useMemo(() => {
+    function getProjectById(id: string): project | undefined {
+      if (data.projects.find)
+        return data.projects.find((p) => window.btoa(p.title) === id);
+    }
+    return {
+      rohan: { ...data, error, getProjectById },
+    };
+  }, [data, error]);
 }

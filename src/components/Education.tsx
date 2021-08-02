@@ -9,14 +9,14 @@ const StyledEducation = styled(motion.div)`
   background: ${(p) => p.theme.colors.main.accent};
   color: ${(p) => p.theme.colors.main.background};
   line-height: 1.6rem;
-  transition: background 300ms ease-out, color 300ms ease-out;
   padding: 2rem;
   padding-top: 0;
+  transition: background 300ms ease-out, color 300ms ease-out;
   h2 {
     line-height: 2rem;
     margin-bottom: 10px;
   }
-  .experience {
+  .education {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 2rem;
@@ -34,7 +34,7 @@ export default function Educations() {
           animate={{ opacity: 0.99999, y: 0 }}
         >
           <h2>Education</h2>
-          <div className="experience">
+          <div className="education">
             {rohan.educations.map((edu) => (
               <Education
                 edu={edu}
@@ -49,9 +49,9 @@ export default function Educations() {
 }
 
 const StyledExperience = styled.div`
-  background: ${(p) => p.theme.colors.main.background};
-  color: ${(p) => p.theme.colors.main.text};
-  padding: 1.5rem;
+  /* background: ${(p) => p.theme.colors.main.background}; */
+  color: ${(p) => p.theme.colors.main.background};
+  /* padding: 1.5rem; */
   border-radius: 20px;
 
   .edu-title {
@@ -59,7 +59,10 @@ const StyledExperience = styled.div`
   }
   .edu-role {
     font-weight: 600;
-    color: ${(p) => p.theme.colors.main.accent};
+    color: ${(p) => p.theme.colors.main.background};
+  }
+  .edu-description {
+    font-size: 1.2rem;
   }
   .links {
     margin-top: 5px;
