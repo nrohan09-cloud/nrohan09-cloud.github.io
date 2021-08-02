@@ -83,12 +83,14 @@ const StyledProject = styled.div`
   .pro-image {
     will-change: opacity;
     width: 200px;
+    height: 200px;
     @media (max-width: 500px) {
       width: 100%;
       object-fit: cover;
     }
     img {
       width: 100%;
+      height: 100%;
     }
   }
   /* .pro-role {
