@@ -112,7 +112,7 @@ function ProjectPreview({ pro }: { pro: project }) {
   return (
     <Link
       to={{
-        pathname: "/project/" + window.btoa(pro.title),
+        pathname: "/project/" + window.btoa(pro.title) + "-rohan",
         state: { ...pro },
       }}
     >

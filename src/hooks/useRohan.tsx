@@ -83,7 +83,9 @@ export function useRohan() {
   return useMemo(() => {
     function getProjectById(id: string): project | undefined {
       if (data.projects.find)
-        return data.projects.find((p) => window.btoa(p.title) === id);
+        return data.projects.find(
+          (p) => window.btoa(p.title) + "-rohan" === id
+        );
     }
     return {
       rohan: { ...data, error, getProjectById },
