@@ -8,6 +8,7 @@ const StyledAbout = styled(motion.div)`
   background: ${(p) => p.theme.colors.main.accent};
   color: ${(p) => p.theme.colors.main.background};
   padding: 2rem;
+  padding-bottom: 0;
   line-height: 1.6rem;
   transition: background 300ms ease-out, color 300ms ease-out;
   border-radius: 20px 20px 0 0;

@@ -11,7 +11,7 @@ const StyledProjects = styled(motion.div)`
   line-height: 1.6rem;
   transition: background 300ms ease-out, color 300ms ease-out;
   padding: 2rem;
-  padding-top: 0;
+  /* padding-top: 0; */
 
   h2 {
     line-height: 2rem;

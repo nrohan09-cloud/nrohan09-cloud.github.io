@@ -49,7 +49,12 @@ export default function ProjectPage() {
   );
 
   useEffect(() => {
-    !project && setProject(rohan.getProjectById(param.id) || null);
+    rohan.projects &&
+      param.id &&
+      !project &&
+      setProject(rohan.getProjectById(param.id) || null);
+
+    // return () => setProject(null);
   }, [project, param, rohan]);
 
   return (
