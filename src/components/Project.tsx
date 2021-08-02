@@ -87,7 +87,7 @@ export default function ProjectPage() {
                       navigator.share({
                         url: window.location.href,
                         title: project.title,
-                        text: project.description,
+                        text: project.title,
                       });
                       return;
                     }
