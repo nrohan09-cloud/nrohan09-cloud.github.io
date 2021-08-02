@@ -86,9 +86,9 @@ const StyledProject = styled.div`
     height: 200px;
     @media (max-width: 500px) {
       width: 100%;
-      object-fit: cover;
     }
     img {
+      object-fit: cover;
       width: 100%;
       height: 100%;
     }
