@@ -9,7 +9,7 @@ import Brightness7RoundedIcon from "@material-ui/icons/Brightness7Rounded";
 const StyledHeader = styled.div`
   position: fixed;
   height: ${(p) => p.theme.height}px;
-  width: ${(p) => p.theme.width}px;
+  width: 100%;
   top: 0;
   left: 0;
   display: flex;
