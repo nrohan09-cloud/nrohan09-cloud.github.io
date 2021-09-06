@@ -37,6 +37,7 @@ export const Global = createGlobalStyle`
       window.data.background = p.theme.colors.main.background;
       return p.theme.colors.main.background;
     }};
+    
     transition: background 300ms ease-out;
   }
 
