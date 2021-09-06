@@ -13,6 +13,7 @@ const StyledHeader = styled.div`
   top: 0;
   left: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: background 300ms ease-out, color 300ms ease-out;
@@ -30,6 +31,14 @@ const StyledHeader = styled.div`
     }
     p {
       line-height: 1.6rem;
+    }
+  }
+  .contact {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    a {
+      margin: 0 1rem;
     }
   }
 `;
@@ -57,8 +66,29 @@ export default function Header() {
             </motion.div>
           )}
         </div>
+        {!!rohan.general.name && <Contact />}
       </StyledHeader>
     </>
+  );
+}
+
+function Contact() {
+  const { rohan } = useContext(GlobalContext);
+  return (
+    <div className="contact">
+      <a href={rohan.general.linkedin} target="_blank" rel="noreferrer">
+        linkedin
+      </a>
+      <a href={rohan.general.facebook} target="_blank" rel="noreferrer">
+        facebook
+      </a>
+      <a href={rohan.general.github} target="_blank" rel="noreferrer">
+        github
+      </a>
+      <a href={rohan.general.instagram} target="_blank" rel="noreferrer">
+        instagram
+      </a>
+    </div>
   );
 }
 

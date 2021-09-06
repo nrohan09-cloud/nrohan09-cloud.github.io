@@ -5,6 +5,7 @@ import About from "./About";
 import Experiences from "./Experience";
 import Educations from "./Education";
 import Projects from "./ProjectsPreviews";
+import Footer from "./Footer";
 
 const StyledHome = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ export default function Home() {
       <Projects />
       <Educations />
       <Experiences />
+      <Footer />
     </StyledHome>
   );
 }
