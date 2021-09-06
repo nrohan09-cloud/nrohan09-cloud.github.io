@@ -1,0 +1,2 @@
+(this["webpackJsonpnrohan09-cloud.github.io"]=this["webpackJsonpnrohan09-cloud.github.io"]||[]).push([[5],{177:function(i,a,t){"use strict";t.r(a),a.default=t.p+"static/media/malar-ai.73e24543.png"}}]);
+//# sourceMappingURL=5.6cd7b5b4.chunk.js.map

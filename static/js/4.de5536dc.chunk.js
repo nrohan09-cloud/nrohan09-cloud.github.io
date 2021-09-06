@@ -1,2 +1,0 @@
-(this["webpackJsonpnrohan09-cloud.github.io"]=this["webpackJsonpnrohan09-cloud.github.io"]||[]).push([[4],{171:function(i,t,n){"use strict";n.r(t),t.default=n.p+"static/media/G.A.N.8981d908.png"}}]);
-//# sourceMappingURL=4.de5536dc.chunk.js.map
