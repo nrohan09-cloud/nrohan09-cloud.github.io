@@ -1,3 +1,4 @@
+import LinearProgress from "@material-ui/core/LinearProgress";
 import { motion } from "framer-motion";
 import React, { useContext } from "react";
 import styled from "styled-components";
@@ -23,15 +24,21 @@ export default function About() {
 
   return (
     <>
-      {!!rohan.general.name && !rohan.error && (
+      {!rohan.error && (
         <StyledAbout
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 0.99999, y: 0 }}
         >
           <h2>About me</h2>
-          <p>{rohan.general.aboutme}</p>
-          <h2>skills</h2>
-          {rohan.skills.length > 0 && <Skillsbar skills={rohan.skills} />}
+          {!!rohan.general.name ? (
+            <>
+              <p>{rohan.general.aboutme}</p>
+              <h2>skills</h2>
+              {rohan.skills.length > 0 && <Skillsbar skills={rohan.skills} />}
+            </>
+          ) : (
+            <LinearProgress />
+          )}
         </StyledAbout>
       )}
     </>

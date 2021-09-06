@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { experience } from "./types";
 import { format } from "date-fns";
+import { LinearProgress } from "@material-ui/core";
 
 const StyledExperiences = styled(motion.div)`
   background: ${(p) => p.theme.colors.main.accent};
@@ -16,8 +17,6 @@ const StyledExperiences = styled(motion.div)`
     line-height: 2rem;
     margin-bottom: 10px;
   }
-  .experience {
-  }
 `;
 
 export default function Experiences() {
@@ -25,18 +24,24 @@ export default function Experiences() {
 
   return (
     <>
-      {!!rohan.experiences.length && !rohan.error && (
+      {!rohan.error ? (
         <StyledExperiences
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 0.99999, y: 0 }}
         >
           <h2>Experience</h2>
-          <div className="experience">
-            {rohan.experiences.map((exp) => (
-              <Experience exp={exp} key={window.btoa(exp.role + exp.title)} />
-            ))}
-          </div>
+          {!!rohan.experiences.length ? (
+            <div className="experience">
+              {rohan.experiences.map((exp) => (
+                <Experience exp={exp} key={window.btoa(exp.role + exp.title)} />
+              ))}
+            </div>
+          ) : (
+            <LinearProgress />
+          )}
         </StyledExperiences>
+      ) : (
+        <></>
       )}
     </>
   );

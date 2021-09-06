@@ -1,3 +1,4 @@
+import LinearProgress from "@material-ui/core/LinearProgress";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -38,14 +39,20 @@ export default function Projects() {
 
   return (
     <>
-      {!!rohan.projects.length && !rohan.error && (
+      {!rohan.error ? (
         <StyledProjects
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 0.99999, y: 0 }}
         >
           <h2>Projects</h2>
-          <div className="project">{projects}</div>
+          {!!rohan.projects.length ? (
+            <div className="project">{projects}</div>
+          ) : (
+            <LinearProgress />
+          )}
         </StyledProjects>
+      ) : (
+        <></>
       )}
     </>
   );
