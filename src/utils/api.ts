@@ -21,7 +21,7 @@ export async function getProjects() {
 }
 export async function getExperience() {
   const { data } = await axios.get(endpoint + "/experience");
-  return data.reverse() as experience[];
+  return data as experience[];
 }
 export async function getSkills() {
   const { data } = await axios.get(endpoint + "/skills");
